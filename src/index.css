@@ -2,58 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fitness App Design System - Glassmorphism & Vibrant Colors 
-All colors MUST be HSL.
-*/
+/* Iron Man HUD meets Gamer Energy - Premium Fitness Design System */
 
 @layer base {
   :root {
-    /* Glassmorphism Dark Background */
-    --background: 240 15% 8%;
-    --foreground: 0 0% 98%;
+    /* Charcoal Dark Background */
+    --background: 220 25% 5%;
+    --foreground: 220 15% 97%;
 
     /* Glass Cards */
-    --card: 240 15% 15%;
-    --card-foreground: 0 0% 95%;
+    --card: 220 25% 8%;
+    --card-foreground: 220 15% 97%;
 
-    --popover: 240 15% 12%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 220 25% 7%;
+    --popover-foreground: 220 15% 97%;
 
-    /* Electric Blue Primary */
-    --primary: 220 100% 65%;
-    --primary-foreground: 240 15% 8%;
-    --primary-glow: 220 100% 75%;
+    /* Cyber Blue Primary */
+    --primary: 200 100% 65%;
+    --primary-foreground: 220 25% 5%;
+    --primary-glow: 200 100% 75%;
 
-    /* Neon Purple Secondary */
-    --secondary: 280 100% 70%;
-    --secondary-foreground: 240 15% 8%;
-    --secondary-glow: 280 100% 80%;
+    /* Electric Blue Secondary */
+    --secondary: 220 100% 70%;
+    --secondary-foreground: 220 25% 5%;
+    --secondary-glow: 220 100% 80%;
 
     /* Muted Glass */
-    --muted: 240 10% 20%;
-    --muted-foreground: 240 5% 70%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 15% 70%;
 
-    /* Neon Green Accent */
-    --accent: 150 100% 60%;
-    --accent-foreground: 240 15% 8%;
-    --accent-glow: 150 100% 70%;
+    /* Lime Neon Accent */
+    --accent: 110 100% 55%;
+    --accent-foreground: 220 25% 5%;
+    --accent-glow: 110 100% 65%;
 
-    /* Warning/Destructive */
-    --destructive: 0 100% 65%;
-    --destructive-foreground: 240 15% 8%;
+    /* Crimson Red Destructive */
+    --destructive: 350 85% 55%;
+    --destructive-foreground: 220 15% 97%;
 
     /* Glass Borders */
-    --border: 240 15% 25%;
-    --input: 240 15% 20%;
-    --ring: 220 100% 65%;
+    --border: 220 20% 18%;
+    --input: 220 25% 12%;
+    --ring: 200 100% 65%;
 
     /* Success Green */
-    --success: 120 100% 60%;
-    --success-foreground: 240 15% 8%;
+    --success: 110 100% 45%;
+    --success-foreground: 220 25% 5%;
 
     /* Warning Orange */
-    --warning: 35 100% 65%;
-    --warning-foreground: 240 15% 8%;
+    --warning: 45 100% 55%;
+    --warning-foreground: 220 25% 5%;
 
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(220 100% 65%), hsl(280 100% 70%));
@@ -136,64 +134,158 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    background: var(--gradient-background);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: radial-gradient(ellipse at top, hsl(220 30% 8%) 0%, hsl(220 25% 5%) 50%, hsl(220 30% 3%) 100%);
+    font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    background-attachment: fixed;
   }
 }
 
 @layer components {
-  /* Glassmorphism Components */
+  /* Apple Vision Pro Style Glassmorphism */
   .glass-card {
-    @apply backdrop-blur-xl bg-gradient-to-br from-card/80 to-card/60 border border-border/50 rounded-3xl shadow-2xl;
-    box-shadow: var(--shadow-glass);
+    @apply backdrop-blur-2xl bg-gradient-to-br from-card/20 to-card/5 border border-border/20 rounded-3xl;
+    box-shadow: 
+      0 32px 64px -12px hsl(var(--background) / 0.9),
+      0 0 0 1px hsl(var(--border) / 0.1),
+      inset 0 1px 0 hsl(var(--foreground) / 0.05),
+      inset 0 -1px 0 hsl(var(--background) / 0.3);
   }
 
   .glass-button {
-    @apply backdrop-blur-md bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30 rounded-2xl hover:from-primary/30 hover:to-primary/20 transition-all duration-300;
+    @apply backdrop-blur-xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/20 rounded-2xl hover:from-primary/25 hover:to-primary/10 transition-all duration-300;
+    box-shadow: 
+      0 8px 32px -8px hsl(var(--background) / 0.6),
+      inset 0 1px 0 hsl(var(--foreground) / 0.08);
   }
 
+  /* Enhanced glow effects */
   .glow-primary {
-    box-shadow: var(--shadow-glow-primary);
+    box-shadow: 
+      0 0 40px hsl(var(--primary) / 0.4),
+      0 0 80px hsl(var(--primary) / 0.2),
+      inset 0 0 20px hsl(var(--primary) / 0.1);
   }
 
   .glow-secondary {
-    box-shadow: var(--shadow-glow-secondary);
+    box-shadow: 
+      0 0 40px hsl(var(--secondary) / 0.4),
+      0 0 80px hsl(var(--secondary) / 0.2),
+      inset 0 0 20px hsl(var(--secondary) / 0.1);
   }
 
   .glow-accent {
-    box-shadow: var(--shadow-glow-accent);
+    box-shadow: 
+      0 0 40px hsl(var(--accent) / 0.4),
+      0 0 80px hsl(var(--accent) / 0.2),
+      inset 0 0 20px hsl(var(--accent) / 0.1);
   }
 
-  /* Animated Elements */
+  .glow-destructive {
+    box-shadow: 
+      0 0 40px hsl(var(--destructive) / 0.4),
+      0 0 80px hsl(var(--destructive) / 0.2),
+      inset 0 0 20px hsl(var(--destructive) / 0.1);
+  }
+
+  /* Premium animations */
   .pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite alternate;
+    animation: pulse-glow 3s ease-in-out infinite alternate;
+  }
+
+  .pulse-heartbeat {
+    animation: pulse-heartbeat 1.5s ease-in-out infinite;
+  }
+
+  .loading-ring {
+    animation: loading-ring 2s linear infinite;
   }
 
   @keyframes pulse-glow {
     from {
-      box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
     }
     to {
-      box-shadow: 0 0 40px hsl(var(--primary) / 0.4);
+      box-shadow: 0 0 60px hsl(var(--primary) / 0.6);
     }
   }
 
-  .float-animation {
-    animation: float 3s ease-in-out infinite;
+  @keyframes pulse-heartbeat {
+    0%, 50%, 100% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.05);
+    }
+    75% {
+      transform: scale(1.02);
+    }
   }
 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+  @keyframes loading-ring {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 
-  /* Progress Bars */
-  .progress-glow {
-    background: var(--gradient-primary);
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  /* 3D button depth effect */
+  .btn-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-3d:hover {
+    transform: translateY(-2px) rotateX(5deg);
+  }
+
+  .btn-3d:active {
+    transform: translateY(0px) rotateX(2deg);
+  }
+
+  /* AI Chat specific styles */
+  .ai-chat-bubble {
+    @apply glass-card p-4 max-w-[80%] animate-in slide-in-from-bottom-2 duration-300;
+  }
+
+  .ai-chat-user {
+    @apply ml-auto bg-primary/20 border-primary/30;
+  }
+
+  .ai-chat-assistant {
+    @apply mr-auto bg-card/30 border-border/30;
+  }
+
+  /* Macro chart styles */
+  .macro-segment {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .macro-segment:hover {
+    filter: brightness(1.2);
+    transform: scale(1.02);
+  }
+
+  /* Heart rate zones */
+  .hr-zone-1 { color: hsl(200 100% 70%); } /* Blue - Rest */
+  .hr-zone-2 { color: hsl(110 100% 60%); } /* Green - Fat Burn */
+  .hr-zone-3 { color: hsl(45 100% 60%); } /* Yellow - Aerobic */
+  .hr-zone-4 { color: hsl(25 100% 60%); } /* Orange - Anaerobic */
+  .hr-zone-5 { color: hsl(350 85% 60%); } /* Red - Max */
+
+  /* Workout timeline */
+  .timeline-item {
+    @apply relative pl-8 pb-8 last:pb-0;
+  }
+
+  .timeline-item::before {
+    @apply absolute left-0 top-0 w-4 h-4 bg-primary rounded-full glow-primary;
+    content: '';
+  }
+
+  .timeline-item::after {
+    @apply absolute left-2 top-4 w-0.5 h-full bg-border;
+    content: '';
+  }
+
+  .timeline-item:last-child::after {
+    display: none;
   }
 }

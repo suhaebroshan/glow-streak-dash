@@ -1,8 +1,13 @@
+import { useState } from 'react';
 import { DailyActivity } from "@/components/dashboard/DailyActivity";
 import { WeeklyProgress } from "@/components/dashboard/WeeklyProgress";
 import { StreakCounter } from "@/components/dashboard/StreakCounter";
 import { QuickActions } from "@/components/dashboard/QuickActions";
 import { ProfileSection } from "@/components/dashboard/ProfileSection";
+import { LiveCalories } from "@/components/dashboard/LiveCalories";
+import { MacroChart } from "@/components/dashboard/MacroChart";
+import { WorkoutTimeline } from "@/components/dashboard/WorkoutTimeline";
+import { AIChat } from "@/components/ai/AIChat";
 import { Button } from "@/components/ui/button";
 import { 
   Bell, 
@@ -13,6 +18,8 @@ import {
 } from "lucide-react";
 
 const Index = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -52,11 +59,20 @@ const Index = () => {
             {/* Daily Activity */}
             <DailyActivity />
             
-            {/* Weekly Progress & Quick Actions */}
+            {/* Live Calories & Macros */}
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+              <LiveCalories />
+              <MacroChart />
+            </div>
+
+            {/* Weekly Progress & Workout Timeline */}
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
               <WeeklyProgress />
-              <QuickActions />
+              <WorkoutTimeline />
             </div>
+
+            {/* Quick Actions */}
+            <QuickActions />
           </div>
 
           {/* Right Column - Sidebar */}
@@ -67,16 +83,8 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Floating Action Button */}
-      <div className="fixed bottom-8 right-8">
-        <Button 
-          variant="default" 
-          size="icon" 
-          className="w-14 h-14 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 pulse-glow"
-        >
-          <span className="text-2xl">💪</span>
-        </Button>
-      </div>
+      {/* AI Chat */}
+      <AIChat isOpen={isChatOpen} onToggle={() => setIsChatOpen(!isChatOpen)} />
     </div>
   );
 };
